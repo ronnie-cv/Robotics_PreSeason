@@ -15,6 +15,10 @@ import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.TimedDrive;
 import frc.robot.commands.AutoDrive;
+import frc.robot.commands.AutoDrive2;
+import edu.wpi.first.wpilibj.controller.PIDController;
+import edu.wpi.first.wpilibj2.command.PIDCommand;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -31,6 +35,7 @@ public class RobotContainer {
   private final ArcadeDrive _arcadeDrive;
   private final TimedDrive _timedDrive;
   private final AutoDrive _autoDrive;
+  private final AutoDrive2 _autoDrive2;
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -42,6 +47,7 @@ public class RobotContainer {
     _arcadeDrive = new ArcadeDrive(_driveTrain, _leftJoystick);
     _timedDrive = new TimedDrive(_driveTrain);
     _autoDrive = new AutoDrive(_driveTrain);
+    _autoDrive2= new AutoDrive2(_driveTrain);
     // commented out to run autodrive as autonomous
    // _driveTrain.setDefaultCommand(_timedDrive);
 
@@ -63,6 +69,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return _autoDrive;
+    return _autoDrive2;
   }
 }
